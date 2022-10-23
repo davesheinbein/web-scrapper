@@ -6,7 +6,9 @@ function BackTop() {
 	return (
 		<div className='back__top'>
 			<a className='back__top-link' href='#home'>
-				<i class='fa fa-arrow-up' aria-hidden='true'></i>
+				<i
+					className='fa fa-arrow-up'
+					aria-hidden='true'></i>
 			</a>
 		</div>
 	);

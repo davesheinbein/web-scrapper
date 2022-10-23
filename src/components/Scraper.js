@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
+import PreviewView from './PreviewView';
 // import '../styles/scraper.scss';
 import '../styles/scraper.css';
 
@@ -47,10 +48,13 @@ const Scraper = () => {
 						Scrape
 					</button>
 				</div>
-				<div className='scraper__container-data'>
+				<div
+					className={`scraper__container-data ${
+						!!htmlDefault && 'scraper__container-data-none'
+					}`}>
 					{!!htmlDefault ? (
 						<div className='scraper__container-data-item'>
-							Enter a url above to see scraped data
+							Enter a url above to see scraped data...
 						</div>
 					) : (
 						<textarea
@@ -60,6 +64,10 @@ const Scraper = () => {
 							value={html}></textarea>
 					)}
 				</div>
+				<PreviewView
+					html={html}
+					htmlDefault={htmlDefault}
+				/>
 			</div>
 		</div>
 	);
