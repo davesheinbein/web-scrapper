@@ -26,7 +26,7 @@ const Scraper = () => {
 			<div className='scraper__container'>
 				<div className='scraper__container-title'>
 					<span className='scraper__container-title-text'>
-						Please enter url below
+						Please enter url below 
 					</span>
 				</div>
 				<div className='scraper__container-input'>
