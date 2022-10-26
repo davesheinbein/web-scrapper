@@ -1,10 +1,7 @@
 import React from 'react';
-// import '../styles/previewview.scss';
-import '../styles/previewview.css';
+import '../styles/previewview.scss';
 
 function PreviewView({ html, htmlDefault }) {
-	console.log('🚀 ~ html', html);
-	console.log('🚀 ~ htmlDefault', htmlDefault);
 	return (
 		<div className='preview'>
 			<div className='preview__title'>Preview View</div>
@@ -16,7 +13,9 @@ function PreviewView({ html, htmlDefault }) {
 				) : (
 					<iframe
 						className='preview__content-item'
-						srcdoc={html}
+						srcDoc={html}
+						title='preview'
+						allowpaymentrequest='false'
 					/>
 				)}
 			</div>

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import PreviewView from './PreviewView';
-// import '../styles/scraper.scss';
-import '../styles/scraper.css';
+import '../styles/scraper.scss';
 
 const Scraper = () => {
 	const [url, setUrl] = useState('');
@@ -26,7 +25,7 @@ const Scraper = () => {
 			<div className='scraper__container'>
 				<div className='scraper__container-title'>
 					<span className='scraper__container-title-text'>
-						Please enter url below 
+						Please enter url below
 					</span>
 				</div>
 				<div className='scraper__container-input'>
@@ -34,7 +33,6 @@ const Scraper = () => {
 						type={'text'}
 						className='scraper__container-input-item'
 						aria-label='Input'
-						aria-description='Input for search url'
 						value={url}
 						onChange={(e) => setUrl(e.target.value)}
 					/>
@@ -61,6 +59,7 @@ const Scraper = () => {
 							className='scraper__container-data-item'
 							rows={'15'}
 							cols={'120'}
+							onChange={() => {}}
 							value={html}></textarea>
 					)}
 				</div>

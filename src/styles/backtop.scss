@@ -1,0 +1,22 @@
+.back__top {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: lightgray;
+    margin-top: auto;
+    padding: 10px 0;
+    background: var(--random-color-one);
+
+    &-link {
+        font-size: 40px;
+        text-decoration: none;
+        color: var(--random-color-one-text);
+
+        &:focus {
+            color: lightblue;
+            color: var(--random-color-two-text);
+        }
+    }
+}
+

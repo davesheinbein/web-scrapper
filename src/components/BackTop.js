@@ -1,6 +1,5 @@
 import React from 'react';
-// import '../styles/backtop.scss';
-import '../styles/backtop.css';
+import '../styles/backtop.scss';
 
 function BackTop() {
 	return (
