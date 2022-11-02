@@ -36,6 +36,36 @@
                     min-width: 250px;
                     border: 1px solid #ffffff;
                 }
+                &-title {
+                    padding: 4px 10px;
+                    font-size: 22px;
+                    font-weight: 900;
+                }
+                &-flex-col {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+                }
+                &-sorted {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: center;
+                    padding: 4px 10px;
+                    &-data {
+                        display: flex;
+                        justify-content: center;
+                        flex-wrap: wrap;
+                        &-item {
+
+                        }
+                    }
+                    &-title {
+                        font-size: 18px;
+                        font-weight: 800;
+                    }
+                }
             }
         }
     }

@@ -37,6 +37,7 @@ function Example() {
 					socialMediaLink,
 					thumb,
 				} = data;
+				console.log('🚀 ~ data', data);
 				setHtml(html);
 				setHeaderLogo(headerLogo);
 				setArtist(artist);
@@ -47,7 +48,9 @@ function Example() {
 				setSocMediaLink(socialMediaLink);
 				setThumbNail(thumb);
 			})
-			.catch((error) => console.log('error:', error));
+			.catch((error) => {
+				console.log('error:', error);
+			});
 	};
 
 	useEffect(() => {
@@ -77,105 +80,145 @@ function Example() {
 							allowpaymentrequest='false'
 						/>
 					</div>
-					<div className='example__container-data-container'>
-						<div>Scraped Data Organized</div>
-						<div className='example__container-data-container-sorted'>
-							<div className='example__container-data-container-sorted-title'></div>
-							Header Logo
-							{headerLogo.map((data) => {
-								return (
-									<div
-										className='example__container-data-container-sorted-data'
-										key={data.id}>
-										{data.value}
-									</div>
-								);
-							})}
+					<div className='example__container-data-container example__container-data-container-flex-col'>
+						<div className='example__container-data-container-title'>
+							Scraped Data Organized
 						</div>
 						<div className='example__container-data-container-sorted'>
-							<div className='example__container-data-container-sorted-title'></div>
-                            Artist
-							{artist.map((data) => {
-								return (
-									<div
-										className='example__container-data-container-sorted-data'
-										key={data.id}>
-										{data.value}
-									</div>
-								);
-							})}
+							<div className='example__container-data-container-sorted-title'>
+								Header Logo
+							</div>
+							<div className='example__container-data-container-sorted-data'>
+								{headerLogo.map((data, idx) => {
+									return (
+										<div
+											className='example__container-data-container-sorted-data-item'
+											key={data.id}>
+											{!!data.value && idx ? ',' : ''}
+											{data.value}
+										</div>
+									);
+								})}
+							</div>
 						</div>
 						<div className='example__container-data-container-sorted'>
-							<div className='example__container-data-container-sorted-title'></div>
-							{baseTitle.map((data) => {
-								return (
-									<div
-										className='example__container-data-container-sorted-data'
-										key={data.id}>
-										{data.value}
-									</div>
-								);
-							})}
+							<div className='example__container-data-container-sorted-title'>
+								Artists
+							</div>
+							<div className='example__container-data-container-sorted-data'>
+								{artist.map((data, idx) => {
+									return (
+										<div
+											className='example__container-data-container-sorted-data-item'
+											key={data.id}>
+											{!!data.value && idx ? ',' : ''}
+											{data.value}
+										</div>
+									);
+								})}
+							</div>
 						</div>
 						<div className='example__container-data-container-sorted'>
-							<div className='example__container-data-container-sorted-title'></div>
-							{rank.map((data) => {
-								return (
-									<div
-										className='example__container-data-container-sorted-data'
-										key={data.id}>
-										{data.value}
-									</div>
-								);
-							})}
+							<div className='example__container-data-container-sorted-title'>
+								Titles
+							</div>
+							<div className='example__container-data-container-sorted-data'>
+								{baseTitle.map((data, idx) => {
+									return (
+										<div
+											className='example__container-data-container-sorted-data-item'
+											key={data.id}>
+											{!!data.value && idx ? ',' : ''}
+											{data.value}
+										</div>
+									);
+								})}
+							</div>
 						</div>
 						<div className='example__container-data-container-sorted'>
-							<div className='example__container-data-container-sorted-title'></div>
-							{remixLink.map((data) => {
-								return (
-									<div
-										className='example__container-data-container-sorted-data'
-										key={data.id}>
-										{data.value}
-									</div>
-								);
-							})}
+							<div className='example__container-data-container-sorted-title'>
+								Rank
+							</div>
+							<div className='example__container-data-container-sorted-data'>
+								{rank.map((data, idx) => {
+									return (
+										<div
+											className='example__container-data-container-sorted-data-item'
+											key={data.id}>
+											{!!data.value && idx ? ',' : ''}
+											{data.value}
+										</div>
+									);
+								})}
+							</div>
 						</div>
 						<div className='example__container-data-container-sorted'>
-							<div className='example__container-data-container-sorted-title'></div>
-							{socMedia.map((data) => {
-								return (
-									<div
-										className='example__container-data-container-sorted-data'
-										key={data.id}>
-										{data.value}
-									</div>
-								);
-							})}
+							<div className='example__container-data-container-sorted-title'>
+								Remix Links
+							</div>
+							<div className='example__container-data-container-sorted-data'>
+								{remixLink.map((data, idx) => {
+									return (
+										<div
+											className='example__container-data-container-sorted-data-item'
+											key={data.id}>
+											{!!data.value && idx ? ',' : ''}
+											{data.value}
+										</div>
+									);
+								})}
+							</div>
 						</div>
 						<div className='example__container-data-container-sorted'>
-							<div className='example__container-data-container-sorted-title'></div>
-							{socMediaLink.map((data) => {
-								return (
-									<div
-										className='example__container-data-container-sorted-data'
-										key={data.id}>
-										{data.value}
-									</div>
-								);
-							})}
+							<div className='example__container-data-container-sorted-title'>
+								Social Media
+							</div>
+							<div className='example__container-data-container-sorted-data'>
+								{socMedia.map((data, idx) => {
+									return (
+										<div
+											className='example__container-data-container-sorted-data-item'
+											key={data.id}>
+											{!!data.value && idx ? ',' : ''}
+											{data.value}
+										</div>
+									);
+								})}
+							</div>
 						</div>
 						<div className='example__container-data-container-sorted'>
-							<div className='example__container-data-container-sorted-title'></div>
-							{thumbNail.map((data) => {
-								return (
-									<div
-										className='example__container-data-container-sorted-data'
-										key={data.id}>
-										{data.value}
-									</div>
-								);
-							})}
+							<div className='example__container-data-container-sorted-title'>
+								Social Media Link
+							</div>
+							<div className='example__container-data-container-sorted-data'>
+								{socMediaLink.map((data, idx) => {
+									return (
+										<div
+											className='example__container-data-container-sorted-data-item'
+											key={data.id}>
+											{!!data.value && idx ? ',' : ''}
+											{data.value}
+										</div>
+									);
+								})}
+							</div>
+						</div>
+						<div className='example__container-data-container-sorted'>
+							<div className='example__container-data-container-sorted-title'>
+								ThumbNail
+							</div>
+							<div className='example__container-data-container-sorted-data'>
+								{thumbNail.map((data, idx) => {
+									return (
+										<div
+											className='example__container-data-container-sorted-data-item'
+											key={data.id}>
+											{!!data.value && idx ? ',' : ''}
+											{data.value}
+										</div>
+									);
+								})}
+							</div>
 						</div>
 					</div>
 				</div>
