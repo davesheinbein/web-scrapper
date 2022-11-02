@@ -1,26 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import '../styles/navbar.scss';
 
 function Navbar() {
-	const [randomColor1, setRandomColor1] = useState(
-		'#' + Math.floor(Math.random() * 0xffffff).toString(16)
-	);
-	const [randomColor2, setRandomColor2] = useState(
-		'#' + Math.floor(Math.random() * 0xffffff).toString(16)
-	);
+	const randomColor1 =
+		'#' + Math.floor(Math.random() * 0xffffff).toString(16);
+	const randomColor2 =
+		'#' + Math.floor(Math.random() * 0xffffff).toString(16);
 	const invertColor = (hex) => {
 		if (hex.indexOf('#') === 0) {
 			hex = hex.slice(1);
 		}
-		// convert 3-digit hex to 6-digits.
 		if (hex.length === 3) {
 			hex =
 				hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
 		}
-		if (hex.length !== 6) {
-			throw new Error('Invalid HEX color.');
+		if (hex.length === 4) {
+			hex =
+				hex[0] + hex[1] + hex[2] + hex[3] + hex[0] + hex[1];
 		}
-		// invert color components
+		if (hex.length === 5) {
+			hex =
+				hex[0] + hex[1] + hex[2] + hex[3] + hex[4] + hex[0];
+		}
+		if (hex.length === 6) {
+			hex =
+				hex[0] + hex[1] + hex[2] + hex[3] + hex[4] + hex[5];
+		}
+		if (hex.length > 6) {
+			hex =
+				hex[0] + hex[1] + hex[2] + hex[3] + hex[4] + hex[5];
+		}
 		var r = (255 - parseInt(hex.slice(0, 2), 16)).toString(
 				16
 			),
@@ -30,7 +39,6 @@ function Navbar() {
 			b = (255 - parseInt(hex.slice(4, 6), 16)).toString(
 				16
 			);
-		// pad each with zeros and return
 		return '#' + padZero(r) + padZero(g) + padZero(b);
 	};
 

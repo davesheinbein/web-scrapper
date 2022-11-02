@@ -1,7 +1,7 @@
 .example {
     width: 100%;
     height: 100%;
-    background: var(--random-color-two);
+    background: var(--random-color-two, #000000);
     &__container{
         display: flex;
         flex-direction: column;
@@ -13,7 +13,7 @@
         &-title {
             padding: 20px 0 0;
             font-size: 24px;
-            color: var(--random-color-two-text);
+            color: var(--random-color-two-text, #ffffff);
         }
         &-data {
             display: flex;

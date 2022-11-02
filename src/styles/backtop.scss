@@ -6,16 +6,16 @@
     background: lightgray;
     margin-top: auto;
     padding: 10px 0;
-    background: var(--random-color-one);
+    background: var(--random-color-one, #ffffff);
 
     &-link {
         font-size: 40px;
         text-decoration: none;
-        color: var(--random-color-one-text);
+        color: var(--random-color-one-text, #000000);
 
         &:focus {
             color: lightblue;
-            color: var(--random-color-two-text);
+            color: var(--random-color-two-text, #ffffff);
         }
     }
 }

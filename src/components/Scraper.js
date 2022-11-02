@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import PreviewView from './PreviewView';
 import '../styles/scraper.scss';
@@ -9,16 +9,26 @@ const Scraper = () => {
 	const htmlDefault = html === 'HTML Scraped';
 
 	const sendUrl = () => {
-		axios
-			.get('http://localhost:8081/scrape', {
-				params: { url: url },
-			})
-			.then((res) => {
-				setHtml(res.data);
-			})
-			.catch((error) => console.log('error:', error));
-		console.log('html:', html);
+		if (!!url && url.length > 0) {
+			axios
+				.get(
+					'https://aqueous-lowlands-32179.herokuapp.com/scrape',
+					// 'http://localhost:8081/scrape',
+					{
+						params: { url: url },
+						// params: { url: 'https://hypem.com/popular' },
+					}
+				)
+				.then((res) => {
+					setHtml(res.data);
+				})
+				.catch((error) => console.log('error:', error));
+		}
 	};
+
+	useEffect(() => {
+		sendUrl();
+	}, []);
 
 	return (
 		<div className='scraper'>

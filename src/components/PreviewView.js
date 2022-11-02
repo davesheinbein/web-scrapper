@@ -6,7 +6,7 @@ function PreviewView({ html, htmlDefault }) {
 		<div className='preview'>
 			<div className='preview__title'>Preview View</div>
 			<div className='preview__content'>
-				{!!!!htmlDefault ? (
+				{!!htmlDefault ? (
 					<div className='preview__content-item-none'>
 						Preview currently unavailable...
 					</div>
