@@ -714,138 +714,128 @@ function Example() {
 							</div>
 							<div className='example__container-data-container-sorted-data'>
 								<div className='example__container-data-container-sorted-data-item'>
-									{!!headerLogo ? headerLogo.title : null}
+									{!!headerLogo && !!headerLogo[0]?.title
+										? headerLogo[0]?.title
+										: null}
 								</div>
 								<div className='example__container-data-container-sorted-data-item'>
-									{!!headerLogo ? headerLogo.href : null}
+									{!!headerLogo && headerLogo[0]?.href
+										? headerLogo[0]?.href
+										: null}
 								</div>
-							</div>
-						</div>
-						<div className='example__container-data-container-sorted'>
-							<div className='example__container-data-container-sorted-title'>
-								Artists
-							</div>
-							<div className='example__container-data-container-sorted-data'>
-								{artist.map((data, idx) => {
-									return (
-										<div
-											className='example__container-data-container-sorted-data-item'
-											key={data.value + data.id}>
-											{!!data.value && idx ? ', ' : ''}
-											{`${data.id + 1})`}
-											{data.value}
-										</div>
-									);
-								})}
-							</div>
-						</div>
-						<div className='example__container-data-container-sorted'>
-							<div className='example__container-data-container-sorted-title'>
-								Titles
-							</div>
-							<div className='example__container-data-container-sorted-data'>
-								{baseTitle.map((data, idx) => {
-									return (
-										<div
-											className='example__container-data-container-sorted-data-item'
-											key={data.value + data.id}>
-											{!!data.value && idx ? ', ' : ''}
-											{`${data.id + 1}) `}
-											{data.value}{' '}
-										</div>
-									);
-								})}
 							</div>
 						</div>
 						<div className='example__container-data-container-sorted'>
 							<div className='example__container-data-container-sorted-title'>
 								Rank
 							</div>
-							<div className='example__container-data-container-sorted-data'>
+							<ul className='example__container-data-container-sorted-data'>
 								{rank.map((data, idx) => {
 									return (
-										<div
+										<li
 											className='example__container-data-container-sorted-data-item'
-											key={data.value + data.id}>
-											{!!data.value && idx ? ', ' : ''}
-											{`${data.id + 1})`}
-											{data.value}
-										</div>
+											key={data.value + data.id + idx}>
+											{!!data.value ? data.value : 'N/A'}
+										</li>
 									);
 								})}
+							</ul>
+						</div>
+						<div className='example__container-data-container-sorted'>
+							<div className='example__container-data-container-sorted-title'>
+								Titles
 							</div>
+							<ol className='example__container-data-container-sorted-data'>
+								{baseTitle.map((data, idx) => {
+									return (
+										<li
+											className='example__container-data-container-sorted-data-item'
+											key={data.value + data.id + idx}>
+											{!!data.value ? data.value : 'N/A'}{' '}
+										</li>
+									);
+								})}
+							</ol>
+						</div>
+						<div className='example__container-data-container-sorted'>
+							<div className='example__container-data-container-sorted-title'>
+								Artists
+							</div>
+							<ol className='example__container-data-container-sorted-data'>
+								{artist.map((data, idx) => {
+									return (
+										<li
+											className='example__container-data-container-sorted-data-item'
+											key={data.value + data.id + idx}>
+											{!!data.value ? data.value : 'N/A'}
+										</li>
+									);
+								})}
+							</ol>
 						</div>
 						<div className='example__container-data-container-sorted'>
 							<div className='example__container-data-container-sorted-title'>
 								Remix Links
 							</div>
-							<div className='example__container-data-container-sorted-data'>
+							<ol className='example__container-data-container-sorted-data'>
 								{remixLink.map((data, idx) => {
 									return (
-										<div
+										<li
 											className='example__container-data-container-sorted-data-item'
-											key={data.value + data.id}>
-											{!!data.value && idx ? ', ' : ''}
-											{`${data.id + 1})`}
-											{data.value}
-										</div>
+											key={data.value + data.id + idx}>
+											{!!data.value ? data.value : 'N/A'}
+										</li>
 									);
 								})}
-							</div>
+							</ol>
 						</div>
 						<div className='example__container-data-container-sorted'>
 							<div className='example__container-data-container-sorted-title'>
 								Social Media
 							</div>
-							<div className='example__container-data-container-sorted-data'>
+							<ol className='example__container-data-container-sorted-data'>
 								{socMedia.map((data, idx) => {
 									return (
-										<div
+										<li
 											className='example__container-data-container-sorted-data-item'
-											key={data.value + data.id}>
-											{!!data.value && idx ? ', ' : ''}
-											{`${data.id + 1})`}
-											{data.value}
-										</div>
+											key={data.value + data.id + idx}>
+											{!!data.value ? data.value : 'N/A'}
+										</li>
 									);
 								})}
-							</div>
+							</ol>
 						</div>
 						<div className='example__container-data-container-sorted'>
 							<div className='example__container-data-container-sorted-title'>
 								Social Media Link
 							</div>
-							<div className='example__container-data-container-sorted-data'>
+							<ol className='example__container-data-container-sorted-data'>
 								{socMediaLink.map((data, idx) => {
 									return (
-										<div
+										<li
 											className='example__container-data-container-sorted-data-item'
-											key={data.value + data.id}>
-											{!!data.value && idx ? ', ' : ''}
-											{`${data.id + 1})`}
-											{data.value}
-										</div>
+											key={data.value + data.id + idx}>
+											{!!data.value ? data.value : 'N/A'}
+										</li>
 									);
 								})}
-							</div>
+							</ol>
 						</div>
 						<div className='example__container-data-container-sorted'>
 							<div className='example__container-data-container-sorted-title'>
 								ThumbNail
 							</div>
-							<div className='example__container-data-container-sorted-data'>
+							<ol className='example__container-data-container-sorted-data example__container-data-container-sorted-data-thumb'>
 								{thumbNail.map((data, idx) => {
 									return (
-										<div
+										<li
 											className='example__container-data-container-sorted-data-item'
-											key={data.value + data.id}>
-											{!!data.value && idx ? ', ' : ''}
-											{`${data.id + 1})`}
-											{data.value}
-										</div>
+											key={data.value + data.id + idx}>
+											{!!data.value ? data.value : 'N/A'}
+										</li>
 									);
 								})}
-							</div>
+							</ol>
 						</div>
 					</div>
 				</div>
