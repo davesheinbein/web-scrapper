@@ -51,8 +51,11 @@
                     display: flex;
                     flex-direction: column;
                     justify-content: flex-start;
-                    // padding: 4px 10px;
                     width: 100%;
+                    &-thumb {
+                        flex-direction: row;
+                        align-self: center;
+                    }
                     &-data {
                         display:flex;
                         flex-wrap:wrap;
@@ -62,23 +65,36 @@
                             padding: 4px 10px;
                             flex-basis:20%;
                         }
-                        &-thumb {
-                            justify-content: center;
+                    }
+                    &-title {
+                        padding: 4px 10px;
+                        font-size: 18px;
+                        font-weight: 800;
+                    }
+                    &-split {
+                        width: 90%;
+                        display: flex;
+                        justify-content: center;
+                        flex-direction: column;
+                        align-items: center;
+                        &-title {
+                            padding: 4px 10px;
+                            font-size: 18px;
+                            font-weight: 800;
+                        }
+                        &-data {
                             flex-direction: column;
+                            justify-content: center;
                             align-items: center;
                             text-align: left;
                             &-item {
+                                padding: 4px 10px;
                                 display: flex;
                                 justify-content: flex-start;
                                 align-items: flex-start;
                                 width: 100%;
                             }
                         }
-                    }
-                    &-title {
-                        padding: 4px 10px;
-                        font-size: 18px;
-                        font-weight: 800;
                     }
                 }
             }

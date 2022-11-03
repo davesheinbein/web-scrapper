@@ -11,6 +11,7 @@ function Example() {
 	const [remixLink, setRemixLink] = useState([]);
 	const [socMedia, setSocMedia] = useState([]);
 	const [socMediaLink, setSocMediaLink] = useState([]);
+	const [thumb, setThumb] = useState([]);
 	const [thumbNail, setThumbNail] = useState([]);
 	const sampleUrl = 'https://hypem.com/popular';
 
@@ -36,6 +37,7 @@ function Example() {
 					socialMedia,
 					socialMediaLink,
 					thumb,
+					thumbnail,
 				} = data;
 				console.log('🚀 ~ data', data);
 				setHtml(html);
@@ -46,7 +48,8 @@ function Example() {
 				setRemixLink(remixLink);
 				setSocMedia(socialMedia);
 				setSocMediaLink(socialMediaLink);
-				setThumbNail(thumb);
+				setThumb(thumb);
+				setThumbNail(thumbnail);
 			})
 			.catch((error) => {
 				console.log('error:', error);
@@ -663,6 +666,7 @@ function Example() {
 					socialMedia,
 					socialMediaLink,
 					thumb,
+					thumbnail,
 				} = data;
 				console.log('🚀 ~ data', data);
 				setHtml(html);
@@ -673,7 +677,8 @@ function Example() {
 				setRemixLink(remixLink);
 				setSocMedia(socialMedia);
 				setSocMediaLink(socialMediaLink);
-				setThumbNail(thumb);
+				setThumb(thumb);
+				setThumbNail(thumbnail);
 			});
 	};
 
@@ -712,18 +717,18 @@ function Example() {
 							<div className='example__container-data-container-sorted-title'>
 								Header Logo
 							</div>
-							<div className='example__container-data-container-sorted-data'>
-								<div className='example__container-data-container-sorted-data-item'>
+							<ul className='example__container-data-container-sorted-data'>
+								<li className='example__container-data-container-sorted-data-item'>
 									{!!headerLogo && !!headerLogo[0]?.title
 										? headerLogo[0]?.title
 										: null}
-								</div>
-								<div className='example__container-data-container-sorted-data-item'>
+								</li>
+								<li className='example__container-data-container-sorted-data-item'>
 									{!!headerLogo && headerLogo[0]?.href
 										? headerLogo[0]?.href
 										: null}
-								</div>
-							</div>
+								</li>
+							</ul>
 						</div>
 						<div className='example__container-data-container-sorted'>
 							<div className='example__container-data-container-sorted-title'>
@@ -821,21 +826,39 @@ function Example() {
 								})}
 							</ol>
 						</div>
-						<div className='example__container-data-container-sorted'>
-							<div className='example__container-data-container-sorted-title'>
-								ThumbNail
+						<div className='example__container-data-container-sorted example__container-data-container-sorted-thumb'>
+							<div className='example__container-data-container-sorted-split'>
+								<div className='example__container-data-container-sorted-split-title'>
+									ThumbNail Link
+								</div>
+								<ol className='example__container-data-container-sorted-split-data'>
+									{thumbNail.map((data, idx) => {
+										return (
+											<li
+												className='example__container-data-container-sorted-data-item'
+												key={data.value + data.id + idx}>
+												{!!data.value ? data.value : 'N/A'}
+											</li>
+										);
+									})}
+								</ol>
 							</div>
-							<ol className='example__container-data-container-sorted-data example__container-data-container-sorted-data-thumb'>
-								{thumbNail.map((data, idx) => {
-									return (
-										<li
-											className='example__container-data-container-sorted-data-item'
-											key={data.value + data.id + idx}>
-											{!!data.value ? data.value : 'N/A'}
-										</li>
-									);
-								})}
-							</ol>
+							<div className='example__container-data-container-sorted-split'>
+								<div className='example__container-data-container-sorted-split-title'>
+									ThumbNail Href
+								</div>
+								<ol className='example__container-data-container-sorted-split-data'>
+									{thumb.map((data, idx) => {
+										return (
+											<li
+												className='example__container-data-container-sorted-data-item'
+												key={data.value + data.id + idx}>
+												{!!data.value ? data.value : 'N/A'}
+											</li>
+										);
+									})}
+								</ol>
+							</div>
 						</div>
 					</div>
 				</div>
