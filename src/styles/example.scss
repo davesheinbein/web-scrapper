@@ -40,6 +40,7 @@
                     padding: 4px 10px;
                     font-size: 22px;
                     font-weight: 900;
+                    text-decoration: underline;
                 }
                 &-flex-col {
                     display: flex;
@@ -94,6 +95,47 @@
                                 align-items: flex-start;
                                 width: 100%;
                             }
+                        }
+                    }
+                }
+                &-possible {
+                    &-title {
+                        padding: 20px 10px;
+                        font-size: 18px;
+                        font-weight: 800;
+                    }
+                    &-design {
+                        padding: 20px 10px;
+                        position: relative;
+                        &-rank {
+                            position: absolute;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background: rgb(248, 171, 28);
+                            color: red;
+                            font-size: 40px;
+                            height: 40px;
+                            width: 40px;
+                        }
+                        &-artist {
+                            position: absolute;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background: rgb(248, 171, 28);
+                            color: red;
+                        }
+                        &-title {
+                            position: absolute;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background: rgb(248, 171, 28);
+                            color: red;
+                        }
+                        &-img {
+                            
                         }
                     }
                 }
