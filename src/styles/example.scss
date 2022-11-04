@@ -107,35 +107,50 @@
                     &-design {
                         padding: 20px 10px;
                         position: relative;
+                        margin: 40px 0;
                         &-rank {
                             position: absolute;
+                            top: -20px;
+                            right: -20px;
                             display: flex;
                             justify-content: center;
                             align-items: center;
                             background: rgb(248, 171, 28);
-                            color: red;
-                            font-size: 40px;
-                            height: 40px;
-                            width: 40px;
+                            color: white;
+                            font-size: 60px;
+                            padding: 0 30px;
+                            width: fit-content;
+                            height: fit-content;
+                            font-family: 'Monoton', cursive;
                         }
                         &-artist {
                             position: absolute;
+                            top: 45%;
+                            bottom: 45%;
+                            right: -50px;
+                            font-size: 20px;
+                            padding: 10px 20px;
                             display: flex;
                             justify-content: center;
                             align-items: center;
-                            background: rgb(248, 171, 28);
-                            color: red;
+                            background: rgb(248, 28, 153);
+                            color: white;
                         }
                         &-title {
                             position: absolute;
+                            bottom: 0px;
+                            left: -50px;
+                            font-size: 25px;
+                            width: fit-content;
+                            padding: 10px;
                             display: flex;
                             justify-content: center;
                             align-items: center;
-                            background: rgb(248, 171, 28);
-                            color: red;
+                            background: rgb(28, 83, 248);
+                            color: white;
+                            font-family: 'Oleo Script Swash Caps', cursive;
                         }
                         &-img {
-                            
                         }
                     }
                 }

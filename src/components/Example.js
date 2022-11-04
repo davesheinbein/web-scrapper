@@ -16,26 +16,32 @@ function Example() {
 	const [thumbNail, setThumbNail] = useState([]);
 	const sampleUrl = 'https://hypem.com/popular';
 
+	const randomNumOneToTen =
+		Math.floor(Math.random() * (19 - 0 + 1)) + 0;
+
 	const previewThumb =
-		!!thumbNail && !!thumbNail[0]?.value
-			? thumbNail[0].value
+		!!thumbNail && !!thumbNail[randomNumOneToTen]?.value
+			? thumbNail[randomNumOneToTen].value
 			: null;
 
 	const previewRank =
-		!!rank && !!rank[0]?.value ? rank[0].value : null;
+		!!rank && !!rank[randomNumOneToTen]?.value
+			? rank[randomNumOneToTen].value
+			: null;
 
 	const previewArtist =
-		!!artist && !!artist[0]?.value ? artist[0].value : null;
+		!!artist && !!artist[randomNumOneToTen]?.value
+			? artist[randomNumOneToTen].value
+			: null;
 
 	const previewTitle =
-		!!baseTitle && !!baseTitle[0]?.value
-			? baseTitle[0].value
+		!!baseTitle && !!baseTitle[randomNumOneToTen]?.value
+			? baseTitle[randomNumOneToTen].value
 			: null;
 
 	const sendUrl = () => {
 		axios
 			.get(
-				// 'https://aqueous-lowlands-32179.herokuapp.com/scrape',
 				'http://localhost:8081/scrape',
 				{
 					params: { url: sampleUrl },
@@ -815,172 +821,198 @@ function Example() {
 					Example View
 				</div>
 				<div className='example__container-data'>
-					<div className='example__container-data-container'>
-						<textarea
-							className='example__container-data-container-info'
-							rows={'15'}
-							cols={'120'}
-							onChange={() => {}}
-							value={html}></textarea>
-					</div>
-					<div className='example__container-data-container'>
-						<iframe
-							className='example__container-data-container-info'
-							srcDoc={html}
-							title='preview'
-							allowpaymentrequest='false'
-						/>
-					</div>
+					{!!html ? (
+						<div className='example__container-data-container'>
+							<textarea
+								className='example__container-data-container-info'
+								rows={'15'}
+								cols={'120'}
+								onChange={() => {}}
+								value={html}></textarea>
+						</div>
+					) : null}
+					{!!html ? (
+						<div className='example__container-data-container'>
+							<iframe
+								className='example__container-data-container-info'
+								srcDoc={html}
+								title='preview'
+								allowpaymentrequest='false'
+							/>
+						</div>
+					) : null}
 					<div className='example__container-data-container example__container-data-container-flex-col'>
 						<div className='example__container-data-container-title'>
 							Scraped Data Organized
 						</div>
-						<div className='example__container-data-container-sorted'>
-							<div className='example__container-data-container-sorted-title'>
-								Header Logo
+						{!!headerLogo ? (
+							<div className='example__container-data-container-sorted'>
+								<div className='example__container-data-container-sorted-title'>
+									Header Logo
+								</div>
+								<ul className='example__container-data-container-sorted-data'>
+									<li className='example__container-data-container-sorted-data-item'>
+										{!!headerLogo && !!headerLogo[0]?.title
+											? headerLogo[0]?.title
+											: null}
+									</li>
+									<li className='example__container-data-container-sorted-data-item'>
+										{!!headerLogo && headerLogo[0]?.href
+											? headerLogo[0]?.href
+											: null}
+									</li>
+								</ul>
 							</div>
-							<ul className='example__container-data-container-sorted-data'>
-								<li className='example__container-data-container-sorted-data-item'>
-									{!!headerLogo && !!headerLogo[0]?.title
-										? headerLogo[0]?.title
-										: null}
-								</li>
-								<li className='example__container-data-container-sorted-data-item'>
-									{!!headerLogo && headerLogo[0]?.href
-										? headerLogo[0]?.href
-										: null}
-								</li>
-							</ul>
-						</div>
-						<div className='example__container-data-container-sorted'>
-							<div className='example__container-data-container-sorted-title'>
-								Rank
+						) : null}
+						{!!rank ? (
+							<div className='example__container-data-container-sorted'>
+								<div className='example__container-data-container-sorted-title'>
+									Rank
+								</div>
+								<ul className='example__container-data-container-sorted-data'>
+									{rank.map((data, idx) => {
+										return (
+											<li
+												className='example__container-data-container-sorted-data-item'
+												key={handleSetKey(data, idx)}>
+												{!!data.value ? data.value : 'N/A'}
+											</li>
+										);
+									})}
+								</ul>
 							</div>
-							<ul className='example__container-data-container-sorted-data'>
-								{rank.map((data, idx) => {
-									return (
-										<li
-											className='example__container-data-container-sorted-data-item'
-											key={handleSetKey(data, idx)}>
-											{!!data.value ? data.value : 'N/A'}
-										</li>
-									);
-								})}
-							</ul>
-						</div>
-						<div className='example__container-data-container-sorted'>
-							<div className='example__container-data-container-sorted-title'>
-								Titles
+						) : null}
+						{!!baseTitle ? (
+							<div className='example__container-data-container-sorted'>
+								<div className='example__container-data-container-sorted-title'>
+									Titles
+								</div>
+								<ol className='example__container-data-container-sorted-data'>
+									{baseTitle.map((data, idx) => {
+										return (
+											<li
+												className='example__container-data-container-sorted-data-item'
+												key={handleSetKey(data, idx)}>
+												{!!data.value ? data.value : 'N/A'}{' '}
+											</li>
+										);
+									})}
+								</ol>
 							</div>
-							<ol className='example__container-data-container-sorted-data'>
-								{baseTitle.map((data, idx) => {
-									return (
-										<li
-											className='example__container-data-container-sorted-data-item'
-											key={handleSetKey(data, idx)}>
-											{!!data.value ? data.value : 'N/A'}{' '}
-										</li>
-									);
-								})}
-							</ol>
-						</div>
-						<div className='example__container-data-container-sorted'>
-							<div className='example__container-data-container-sorted-title'>
-								Artists
+						) : null}
+						{!!artist ? (
+							<div className='example__container-data-container-sorted'>
+								<div className='example__container-data-container-sorted-title'>
+									Artists
+								</div>
+								<ol className='example__container-data-container-sorted-data'>
+									{artist.map((data, idx) => {
+										return (
+											<li
+												className='example__container-data-container-sorted-data-item'
+												key={handleSetKey(data, idx)}>
+												{!!data.value ? data.value : 'N/A'}
+											</li>
+										);
+									})}
+								</ol>
 							</div>
-							<ol className='example__container-data-container-sorted-data'>
-								{artist.map((data, idx) => {
-									return (
-										<li
-											className='example__container-data-container-sorted-data-item'
-											key={handleSetKey(data, idx)}>
-											{!!data.value ? data.value : 'N/A'}
-										</li>
-									);
-								})}
-							</ol>
-						</div>
-						<div className='example__container-data-container-sorted'>
-							<div className='example__container-data-container-sorted-title'>
-								Remix Links
+						) : null}
+						{!!remixLink ? (
+							<div className='example__container-data-container-sorted'>
+								<div className='example__container-data-container-sorted-title'>
+									Remix Links
+								</div>
+								<ol className='example__container-data-container-sorted-data'>
+									{remixLink.map((data, idx) => {
+										return (
+											<li
+												className='example__container-data-container-sorted-data-item'
+												key={handleSetKey(data, idx)}>
+												{!!data.value ? data.value : 'N/A'}
+											</li>
+										);
+									})}
+								</ol>
 							</div>
-							<ol className='example__container-data-container-sorted-data'>
-								{remixLink.map((data, idx) => {
-									return (
-										<li
-											className='example__container-data-container-sorted-data-item'
-											key={handleSetKey(data, idx)}>
-											{!!data.value ? data.value : 'N/A'}
-										</li>
-									);
-								})}
-							</ol>
-						</div>
-						<div className='example__container-data-container-sorted'>
-							<div className='example__container-data-container-sorted-title'>
-								Social Media
+						) : null}
+						{!!socMedia ? (
+							<div className='example__container-data-container-sorted'>
+								<div className='example__container-data-container-sorted-title'>
+									Social Media
+								</div>
+								<ol className='example__container-data-container-sorted-data'>
+									{socMedia.map((data, idx) => {
+										return (
+											<li
+												className='example__container-data-container-sorted-data-item'
+												key={handleSetKey(data, idx)}>
+												{!!data.value ? data.value : 'N/A'}
+											</li>
+										);
+									})}
+								</ol>
 							</div>
-							<ol className='example__container-data-container-sorted-data'>
-								{socMedia.map((data, idx) => {
-									return (
-										<li
-											className='example__container-data-container-sorted-data-item'
-											key={handleSetKey(data, idx)}>
-											{!!data.value ? data.value : 'N/A'}
-										</li>
-									);
-								})}
-							</ol>
-						</div>
-						<div className='example__container-data-container-sorted'>
-							<div className='example__container-data-container-sorted-title'>
-								Social Media Link
+						) : null}
+						{!!socMediaLink ? (
+							<div className='example__container-data-container-sorted'>
+								<div className='example__container-data-container-sorted-title'>
+									Social Media Link
+								</div>
+								<ol className='example__container-data-container-sorted-data'>
+									{socMediaLink.map((data, idx) => {
+										return (
+											<li
+												className='example__container-data-container-sorted-data-item'
+												key={handleSetKey(data, idx)}>
+												{!!data.value ? data.value : 'N/A'}
+											</li>
+										);
+									})}
+								</ol>
 							</div>
-							<ol className='example__container-data-container-sorted-data'>
-								{socMediaLink.map((data, idx) => {
-									return (
-										<li
-											className='example__container-data-container-sorted-data-item'
-											key={handleSetKey(data, idx)}>
-											{!!data.value ? data.value : 'N/A'}
-										</li>
-									);
-								})}
-							</ol>
-						</div>
+						) : null}
 						<div className='example__container-data-container-sorted example__container-data-container-sorted-thumb'>
-							<div className='example__container-data-container-sorted-split'>
-								<div className='example__container-data-container-sorted-split-title'>
-									ThumbNail Link
+							{!!thumbNail ? (
+								<div className='example__container-data-container-sorted-split'>
+									<div className='example__container-data-container-sorted-split-title'>
+										ThumbNail Link
+									</div>
+									<ol className='example__container-data-container-sorted-split-data'>
+										{thumbNail.map((data, idx) => {
+											return (
+												<li
+													className='example__container-data-container-sorted-data-item'
+													key={handleSetKey(data, idx)}>
+													{!!data.value
+														? data.value
+														: 'N/A'}
+												</li>
+											);
+										})}
+									</ol>
 								</div>
-								<ol className='example__container-data-container-sorted-split-data'>
-									{thumbNail.map((data, idx) => {
-										return (
-											<li
-												className='example__container-data-container-sorted-data-item'
-												key={handleSetKey(data, idx)}>
-												{!!data.value ? data.value : 'N/A'}
-											</li>
-										);
-									})}
-								</ol>
-							</div>
-							<div className='example__container-data-container-sorted-split'>
-								<div className='example__container-data-container-sorted-split-title'>
-									ThumbNail Href
+							) : null}
+							{!!thumb ? (
+								<div className='example__container-data-container-sorted-split'>
+									<div className='example__container-data-container-sorted-split-title'>
+										ThumbNail Href
+									</div>
+									<ol className='example__container-data-container-sorted-split-data'>
+										{thumb.map((data, idx) => {
+											return (
+												<li
+													className='example__container-data-container-sorted-data-item'
+													key={handleSetKey(data, idx)}>
+													{!!data.value
+														? data.value
+														: 'N/A'}
+												</li>
+											);
+										})}
+									</ol>
 								</div>
-								<ol className='example__container-data-container-sorted-split-data'>
-									{thumb.map((data, idx) => {
-										return (
-											<li
-												className='example__container-data-container-sorted-data-item'
-												key={handleSetKey(data, idx)}>
-												{!!data.value ? data.value : 'N/A'}
-											</li>
-										);
-									})}
-								</ol>
-							</div>
+							) : null}
 						</div>
 					</div>
 
@@ -990,20 +1022,30 @@ function Example() {
 								Example use case of scraped data
 							</div>
 							<div className='example__container-data-container-possible-design'>
-								<div className='example__container-data-container-possible-design-rank'>
-									{previewRank}
-								</div>
-								<div className='example__container-data-container-possible-design-artist'>
-									{previewArtist}
-								</div>
-								<div className='example__container-data-container-possible-design-title'>
-									{previewTitle}
-								</div>
-								<img
-									className='example__container-data-container-possible-design-img'
-									src={previewThumb}
-									alt='Thumbnail'
-								/>
+								{!!previewRank ? (
+									<div className='example__container-data-container-possible-design-rank'>
+										{previewRank}
+									</div>
+								) : null}
+								{!!previewArtist ? (
+									<div className='example__container-data-container-possible-design-artist'>
+										{previewArtist}
+									</div>
+								) : null}
+								{!!previewTitle ? (
+									<div className='example__container-data-container-possible-design-title'>
+										{previewTitle}
+									</div>
+								) : null}
+								{!!previewThumb ? (
+									<img
+										className={
+											'example__container-data-container-possible-design-img'
+										}
+										src={previewThumb}
+										alt='Thumbnail'
+									/>
+								) : null}
 							</div>
 						</div>
 					</div>
