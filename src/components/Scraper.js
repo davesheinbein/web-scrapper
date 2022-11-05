@@ -12,10 +12,9 @@ const Scraper = () => {
 		if (!!url && url.length > 0) {
 			axios
 				.get(
-					'http://localhost:8081/scrape',
+					'https://aqueous-lowlands-32179.herokuapp.com/scrape',
 					{
 						params: { url: url },
-						// params: { url: 'https://hypem.com/popular' },
 					}
 				)
 				.then((res) => {

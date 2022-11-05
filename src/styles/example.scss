@@ -122,6 +122,7 @@
                             width: fit-content;
                             height: fit-content;
                             font-family: 'Monoton', cursive;
+                            border: 3px solid #000000;
                         }
                         &-artist {
                             position: absolute;
@@ -135,6 +136,7 @@
                             align-items: center;
                             background: rgb(248, 28, 153);
                             color: white;
+                            border: 3px solid #000000;
                         }
                         &-title {
                             position: absolute;
@@ -149,8 +151,10 @@
                             background: rgb(28, 83, 248);
                             color: white;
                             font-family: 'Oleo Script Swash Caps', cursive;
+                            border: 3px solid #000000;
                         }
                         &-img {
+                            border: 3px solid #000000;
                         }
                     }
                 }
