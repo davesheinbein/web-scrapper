@@ -37,10 +37,11 @@
                     border: 1px solid #ffffff;
                 }
                 &-title {
+                    margin: 10px auto 0;
                     padding: 4px 10px;
-                    font-size: 22px;
+                    font-size: 26px;
                     font-weight: 900;
-                    text-decoration: underline;
+                    font-family: 'Oleo Script Swash Caps', cursive;
                 }
                 &-flex-col {
                     display: flex;
@@ -56,7 +57,7 @@
                     &-data {
                         display:flex;
                         flex-wrap:wrap;
-                        justify-content:center;
+                        justify-content: center;
                         gap:10px;
                         &-item {
                             padding: 4px 10px;
@@ -113,7 +114,7 @@
                             display: flex;
                             justify-content: center;
                             align-items: center;
-                            background: rgb(248, 171, 28);
+                            background: #82C441;
                             color: white;
                             font-size: 60px;
                             padding: 0 30px;
@@ -156,6 +157,42 @@
                         }
                     }
                 }
+
+                &-table {
+                    border-collapse: collapse;
+                    font-size: 0.9em;
+                    font-family: sans-serif;
+                    min-width: 400px;
+                    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+                    width: 100%;
+                    max-width: 95%;
+                    margin: 25px auto;
+                    table-layout: fixed; 
+                    &-head {
+                        background-color: #82C441;
+                        color: #ffffff;
+                        text-align: left;
+                        &-row {
+                            border-bottom: 1px solid #dddddd;
+                            &-hearder {
+                                padding: 12px 15px;
+                                text-align: center;
+                            }
+                        }
+                    }
+                    &-body {
+                        &-row {
+                            border-bottom: 1px solid #dddddd;
+                            width: 100%;
+                            &-item {
+                                padding: 12px 15px;
+                                overflow-wrap: break-word;
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+
             }
         }
     }

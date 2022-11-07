@@ -938,127 +938,139 @@ function Example() {
 						</div>
 
 						<table className='example__container-data-container-table'>
-							<tr className='example__container-data-container-table-row'>
-								{tableDataHeader.map((data, idx) => {
-									const { value } = data;
+							<thead className='example__container-data-container-table-head'>
+								<tr className='example__container-data-container-table-head-row'>
+									{tableDataHeader.map((data, idx) => {
+										const { value } = data;
+										return (
+											<th
+												className='example__container-data-container-table-head-row-hearder'
+												key={handleSetKey(value, idx)}>
+												{!!value ? value : 'N/A'}
+											</th>
+										);
+									})}
+								</tr>
+							</thead>
+							<tbody className='example__container-data-container-table-body'>
+								{tableData.map((data, idx) => {
+									let {
+										rank,
+										artist,
+										baseTitle,
+										remixLink,
+										socMedia,
+										socMediaLink,
+										thumb,
+										thumbNail,
+									} = data;
 									return (
-										<th
-											className='example__container-data-container-table-row-hearder'
-											key={handleSetKey(value, idx)}>
-											{!!value ? value : 'N/A'}
-										</th>
+										<tr className='example__container-data-container-table-body-row'>
+											<td
+												className={`example__container-data-container-table-body-row-item example__container-data-container-table-body-row-item-${handleSetKey(
+													rank.value,
+													idx
+												)}`}
+												key={handleSetKey(rank.value, idx)}>
+												{!!rank?.value
+													? rank?.value
+													: 'N/A'}
+											</td>
+											<td
+												className={`example__container-data-container-table-body-row-item example__container-data-container-table-body-row-item-${handleSetKey(
+													artist.value,
+													idx
+												)}`}
+												key={handleSetKey(
+													artist.value,
+													idx
+												)}>
+												{!!artist?.value
+													? artist?.value
+													: 'N/A'}
+											</td>
+											<td
+												className={`example__container-data-container-table-body-row-item example__container-data-container-table-body-row-item-${handleSetKey(
+													baseTitle.value,
+													idx
+												)}`}
+												key={handleSetKey(
+													baseTitle.value,
+													idx
+												)}>
+												{!!baseTitle?.value
+													? baseTitle?.value
+													: 'N/A'}
+											</td>
+											<td
+												className={`example__container-data-container-table-body-row-item example__container-data-container-table-body-row-item-${handleSetKey(
+													remixLink.value,
+													idx
+												)}`}
+												key={handleSetKey(
+													remixLink.value,
+													idx
+												)}>
+												{!!remixLink?.value
+													? remixLink?.value
+													: 'N/A'}
+											</td>
+											<td
+												className={`example__container-data-container-table-body-row-item example__container-data-container-table-body-row-item-${handleSetKey(
+													socMedia.value,
+													idx
+												)}`}
+												key={handleSetKey(
+													socMedia.value,
+													idx
+												)}>
+												{!!socMedia?.value
+													? socMedia?.value
+													: 'N/A'}
+											</td>
+											<td
+												className={`example__container-data-container-table-body-row-item example__container-data-container-table-body-row-item-${handleSetKey(
+													socMediaLink.value,
+													idx
+												)}`}
+												key={handleSetKey(
+													socMediaLink.value,
+													idx
+												)}>
+												{!!socMediaLink?.value
+													? socMediaLink?.value
+													: 'N/A'}
+											</td>
+											<td
+												className={`example__container-data-container-table-body-row-item example__container-data-container-table-body-row-item-${handleSetKey(
+													thumb.value,
+													idx
+												)}`}
+												key={handleSetKey(
+													thumb.value,
+													idx
+												)}>
+												{!!thumb?.value
+													? thumb?.value
+													: 'N/A'}
+											</td>
+											<td
+												className={`example__container-data-container-table-body-row-item example__container-data-container-table-body-row-item-${handleSetKey(
+													thumbNail.value,
+													idx
+												)}`}
+												key={handleSetKey(
+													thumbNail.value,
+													idx
+												)}>
+												{!!thumbNail?.value
+													? thumbNail?.value
+													: 'N/A'}
+											</td>
+										</tr>
 									);
 								})}
-							</tr>
-							{tableData.map((data, idx) => {
-								let {
-									rank,
-									artist,
-									baseTitle,
-									remixLink,
-									socMedia,
-									socMediaLink,
-									thumb,
-									thumbNail,
-								} = data;
-								return (
-									<tr className='example__container-data-container-table-row'>
-										<td
-											className={`example__container-data-container-table-row-item example__container-data-container-table-row-item-${handleSetKey(
-												rank.value,
-												idx
-											)}`}
-											key={handleSetKey(rank.value, idx)}>
-											{!!rank?.value ? rank?.value : 'N/A'}
-										</td>
-										<td
-											className={`example__container-data-container-table-row-item example__container-data-container-table-row-item-${handleSetKey(
-												artist.value,
-												idx
-											)}`}
-											key={handleSetKey(artist.value, idx)}>
-											{!!artist?.value
-												? artist?.value
-												: 'N/A'}
-										</td>
-										<td
-											className={`example__container-data-container-table-row-item example__container-data-container-table-row-item-${handleSetKey(
-												baseTitle.value,
-												idx
-											)}`}
-											key={handleSetKey(
-												baseTitle.value,
-												idx
-											)}>
-											{!!baseTitle?.value
-												? baseTitle?.value
-												: 'N/A'}
-										</td>
-										<td
-											className={`example__container-data-container-table-row-item example__container-data-container-table-row-item-${handleSetKey(
-												remixLink.value,
-												idx
-											)}`}
-											key={handleSetKey(
-												remixLink.value,
-												idx
-											)}>
-											{!!remixLink?.value
-												? remixLink?.value
-												: 'N/A'}
-										</td>
-										<td
-											className={`example__container-data-container-table-row-item example__container-data-container-table-row-item-${handleSetKey(
-												socMedia.value,
-												idx
-											)}`}
-											key={handleSetKey(
-												socMedia.value,
-												idx
-											)}>
-											{!!socMedia?.value
-												? socMedia?.value
-												: 'N/A'}
-										</td>
-										<td
-											className={`example__container-data-container-table-row-item example__container-data-container-table-row-item-${handleSetKey(
-												socMediaLink.value,
-												idx
-											)}`}
-											key={handleSetKey(
-												socMediaLink.value,
-												idx
-											)}>
-											{!!socMediaLink?.value
-												? socMediaLink?.value
-												: 'N/A'}
-										</td>
-										<td
-											className={`example__container-data-container-table-row-item example__container-data-container-table-row-item-${handleSetKey(
-												thumb.value,
-												idx
-											)}`}
-											key={handleSetKey(thumb.value, idx)}>
-											{!!thumb?.value
-												? thumb?.value
-												: 'N/A'}
-										</td>
-										<td
-											className={`example__container-data-container-table-row-item example__container-data-container-table-row-item-${handleSetKey(
-												thumbNail.value,
-												idx
-											)}`}
-											key={handleSetKey(
-												thumbNail.value,
-												idx
-											)}>
-											{!!thumbNail?.value
-												? thumbNail?.value
-												: 'N/A'}
-										</td>
-									</tr>
-								);
-							})}
+							</tbody>
 						</table>
 					</div>
 
