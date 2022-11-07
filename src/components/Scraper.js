@@ -20,13 +20,12 @@ const Scraper = () => {
 					}
 				)
 				.then((res) => {
-					console.log('🚀 ~ res', res);
 					const { data } = res;
 					setHtml(data.html);
 					setError(false);
 				})
 				.catch((error) => {
-					console.log('error:', error);
+					console.log('Error: ', error);
 					setError(true);
 				});
 		}
