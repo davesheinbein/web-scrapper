@@ -867,12 +867,19 @@ function Example() {
 			set = 'NA';
 		}
 		if (!!data && !!data[0].value) {
-			set = data[0].value.replace(/\s/g, '');
+			set = data[0].value;
 		}
 		if (set === '' || set === null || set === undefined) {
 			set = 'NA';
 		}
-		return set + idx + uuid();
+		set = set.replace(/\s/g, '');
+		return (
+			set +
+			(idx + uuid() + Math.floor(Math.random() * (idx + 2)))
+				.replace(/\s/g, '')
+				.replace(/-/g, '')
+				.replace(/\\/g, '')
+		);
 	};
 
 	useEffect(() => {

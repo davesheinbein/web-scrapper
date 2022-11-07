@@ -20,7 +20,9 @@ const Scraper = () => {
 					}
 				)
 				.then((res) => {
-					setHtml(res.data);
+					console.log('🚀 ~ res', res);
+					const { data } = res;
+					setHtml(data.html);
 					setError(false);
 				})
 				.catch((error) => {
