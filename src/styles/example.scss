@@ -105,6 +105,11 @@
                         padding: 20px 10px;
                         position: relative;
                         margin: 40px 0;
+                        @media only screen and (max-width: 480px) {
+                            // transform: scale(.7);
+                            padding: 0;
+                            margin: 0;
+                        }
                         &-rank {
                             position: absolute;
                             top: -20px;
@@ -112,7 +117,6 @@
                             display: flex;
                             justify-content: center;
                             align-items: center;
-                            background: 82C441;
                             color: white;
                             font-size: 60px;
                             padding: 0 30px;
@@ -121,6 +125,12 @@
                             font-family: 'Monoton', cursive;
                             background: #82C441;
                             border: 3px solid #000000;
+                            @media only screen and (max-width: 480px) {
+                                font-size: 20px;
+                                z-index: 10;
+                                top: 35px;
+                                right: 20px;
+                            }
                         }
                         &-artist {
                             position: absolute;
@@ -136,6 +146,11 @@
                             color: white;
                             border: 3px solid #000000;
                             font-family: 'Times New Roman', Times, serif;
+                            z-index: 10;
+                            @media only screen and (max-width: 480px) {
+                                font-size: 12px;
+                                right: 0px;
+                            }
                         }
                         &-title {
                             position: absolute;
@@ -151,9 +166,19 @@
                             color: white;
                             font-family: 'Oleo Script Swash Caps', cursive;
                             border: 3px solid #000000;
+                            z-index: 10;
+                            @media only screen and (max-width: 480px) {
+                                font-size: 12px;
+                                left: 0px;
+                                bottom: 40px;
+                            }
                         }
                         &-img {
                             border: 3px solid #000000;
+                            z-index: 1;
+                            @media only screen and (max-width: 480px) {
+                                transform: scale(.7);
+                            }
                         }
                     }
                 }
@@ -168,6 +193,13 @@
                     max-width: 95%;
                     margin: 25px auto;
                     table-layout: fixed; 
+
+                    @media only screen and (max-width: 480px) {
+                        display: block;
+                        overflow: auto;
+                        min-width: unset;
+                    }
+
                     &-head {
                         background-color: #82C441;
                         color: #ffffff;

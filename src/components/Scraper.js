@@ -6,11 +6,11 @@ import '../styles/scraper.scss';
 const Scraper = () => {
 	const [url, setUrl] = useState('');
 	const [html, setHtml] = useState('HTML Scraped');
-	const [error, setError] = useState(true);
+	const [error, setError] = useState(false);
 	const htmlDefault = html === 'HTML Scraped';
 
 	const sendUrl = () => {
-		// setError(false);
+		setError(false);
 		if (!!url && url.length > 0) {
 			axios
 				.get(

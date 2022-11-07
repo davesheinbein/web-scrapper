@@ -65,8 +65,6 @@ function Example() {
 		},
 	]);
 
-	const sampleUrl = 'https://hypem.com/popular';
-
 	const randomNumOneToTwenty =
 		Math.floor(Math.random() * (19 - 0 + 1)) + 0;
 
@@ -95,6 +93,8 @@ function Example() {
 		  !!baseTitle[randomNumOneToTwenty]?.value
 		? baseTitle[randomNumOneToTwenty].value
 		: null;
+
+	const sampleUrl = 'https://hypem.com/popular';
 
 	const sendUrl = () => {
 		axios
