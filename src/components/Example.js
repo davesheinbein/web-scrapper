@@ -67,31 +67,33 @@ function Example() {
 
 	const sampleUrl = 'https://hypem.com/popular';
 
-	const randomNumOneToTen =
+	const randomNumOneToTwenty =
 		Math.floor(Math.random() * (19 - 0 + 1)) + 0;
 
 	const previewThumb = !!defualtData
 		? thumbNail[0].value
-		: !!thumbNail && !!thumbNail[randomNumOneToTen]?.value
-		? thumbNail[randomNumOneToTen].value
+		: !!thumbNail &&
+		  !!thumbNail[randomNumOneToTwenty]?.value
+		? thumbNail[randomNumOneToTwenty].value
 		: null;
 
 	const previewRank = !!defualtData
 		? rank[0].value
-		: !!rank && !!rank[randomNumOneToTen]?.value
-		? rank[randomNumOneToTen].value
+		: !!rank && !!rank[randomNumOneToTwenty]?.value
+		? rank[randomNumOneToTwenty].value
 		: null;
 
 	const previewArtist = !!defualtData
 		? artist[0].value
-		: !!artist && !!artist[randomNumOneToTen]?.value
-		? artist[randomNumOneToTen].value
+		: !!artist && !!artist[randomNumOneToTwenty]?.value
+		? artist[randomNumOneToTwenty].value
 		: null;
 
 	const previewTitle = !!defualtData
 		? baseTitle[0].value
-		: !!baseTitle && !!baseTitle[randomNumOneToTen]?.value
-		? baseTitle[randomNumOneToTen].value
+		: !!baseTitle &&
+		  !!baseTitle[randomNumOneToTwenty]?.value
+		? baseTitle[randomNumOneToTwenty].value
 		: null;
 
 	const sendUrl = () => {
