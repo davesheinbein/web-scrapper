@@ -53,10 +53,6 @@
                     flex-direction: column;
                     justify-content: flex-start;
                     width: 100%;
-                    &-thumb {
-                        flex-direction: row;
-                        align-self: center;
-                    }
                     &-data {
                         display:flex;
                         flex-wrap:wrap;
@@ -73,7 +69,6 @@
                         font-weight: 800;
                     }
                     &-split {
-                        width: 90%;
                         display: flex;
                         justify-content: center;
                         flex-direction: column;
@@ -88,12 +83,15 @@
                             justify-content: center;
                             align-items: center;
                             text-align: left;
+                            // width: 100%;
                             &-item {
                                 padding: 4px 10px;
                                 display: flex;
-                                justify-content: flex-start;
-                                align-items: flex-start;
-                                width: 100%;
+                                // justify-content: flex-start;
+                                // align-items: flex-start;
+                                justify-content: center;
+                                align-items: center;
+                                // width: 50%;
                             }
                         }
                     }

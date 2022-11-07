@@ -64,6 +64,7 @@ function Example() {
 			id: 0,
 		},
 	]);
+
 	const sampleUrl = 'https://hypem.com/popular';
 
 	const randomNumOneToTen =
@@ -859,12 +860,50 @@ function Example() {
 	};
 
 	const handleSetKey = (data, idx) => {
-		return data.value + data.id + idx + uuid();
+		console.log('🚀 ~ data', data);
+		console.log('🚀 ~ !data', !data);
+		let set = data;
+		if (!data) {
+			set = 'NA';
+		}
+		if (!!data && !!data[0].value) {
+			set = data[0].value.replace(/\s/g, '');
+		}
+		if (set === '' || set === null || set === undefined) {
+			set = 'NA';
+		}
+		return set + idx + uuid();
 	};
 
 	useEffect(() => {
 		sendUrl();
 	}, [sampleUrl]);
+
+	let tableDataHeader = [
+		{ value: 'Rank' },
+		{ value: 'Artist' },
+		{ value: 'BaseTitle' },
+		{ value: 'Remix Link' },
+		{ value: 'Social Media' },
+		{ value: 'Soc Media Link' },
+		{ value: 'Thumb Link' },
+		{ value: 'ThumbNail Href' },
+	];
+	let tableData = [];
+	for (let idx = 0; idx < (!!defualtData ? 1 : 20); idx++) {
+		const element = {
+			artist: artist[idx],
+			baseTitle: baseTitle[idx],
+			rank: rank[idx],
+			remixLink: remixLink[idx],
+			socMedia: socMedia[idx],
+			socMediaLink: socMediaLink[idx],
+			thumb: thumb[idx],
+			thumbNail: thumbNail[idx],
+		};
+		tableData.push(element);
+	}
+	console.log('🚀 ~ tableData', tableData);
 
 	return (
 		<div className='example'>
@@ -897,175 +936,130 @@ function Example() {
 						<div className='example__container-data-container-title'>
 							Scraped Data Organized
 						</div>
-						{!!headerLogo ? (
-							<div className='example__container-data-container-sorted'>
-								<div className='example__container-data-container-sorted-title'>
-									Header Logo
-								</div>
-								<ul className='example__container-data-container-sorted-data'>
-									<li className='example__container-data-container-sorted-data-item'>
-										{!!headerLogo && !!headerLogo[0]?.title
-											? headerLogo[0]?.title
-											: null}
-									</li>
-									<li className='example__container-data-container-sorted-data-item'>
-										{!!headerLogo && headerLogo[0]?.href
-											? headerLogo[0]?.href
-											: null}
-									</li>
-								</ul>
-							</div>
-						) : null}
-						{!!rank ? (
-							<div className='example__container-data-container-sorted'>
-								<div className='example__container-data-container-sorted-title'>
-									Rank
-								</div>
-								<ul className='example__container-data-container-sorted-data'>
-									{rank.map((data, idx) => {
-										return (
-											<li
-												className='example__container-data-container-sorted-data-item'
-												key={handleSetKey(data, idx)}>
-												{!!data.value ? data.value : 'N/A'}
-											</li>
-										);
-									})}
-								</ul>
-							</div>
-						) : null}
-						{!!baseTitle ? (
-							<div className='example__container-data-container-sorted'>
-								<div className='example__container-data-container-sorted-title'>
-									Titles
-								</div>
-								<ol className='example__container-data-container-sorted-data'>
-									{baseTitle.map((data, idx) => {
-										return (
-											<li
-												className='example__container-data-container-sorted-data-item'
-												key={handleSetKey(data, idx)}>
-												{!!data.value ? data.value : 'N/A'}{' '}
-											</li>
-										);
-									})}
-								</ol>
-							</div>
-						) : null}
-						{!!artist ? (
-							<div className='example__container-data-container-sorted'>
-								<div className='example__container-data-container-sorted-title'>
-									Artists
-								</div>
-								<ol className='example__container-data-container-sorted-data'>
-									{artist.map((data, idx) => {
-										return (
-											<li
-												className='example__container-data-container-sorted-data-item'
-												key={handleSetKey(data, idx)}>
-												{!!data.value ? data.value : 'N/A'}
-											</li>
-										);
-									})}
-								</ol>
-							</div>
-						) : null}
-						{!!remixLink ? (
-							<div className='example__container-data-container-sorted'>
-								<div className='example__container-data-container-sorted-title'>
-									Remix Links
-								</div>
-								<ol className='example__container-data-container-sorted-data'>
-									{remixLink.map((data, idx) => {
-										return (
-											<li
-												className='example__container-data-container-sorted-data-item'
-												key={handleSetKey(data, idx)}>
-												{!!data.value ? data.value : 'N/A'}
-											</li>
-										);
-									})}
-								</ol>
-							</div>
-						) : null}
-						{!!socMedia ? (
-							<div className='example__container-data-container-sorted'>
-								<div className='example__container-data-container-sorted-title'>
-									Social Media
-								</div>
-								<ol className='example__container-data-container-sorted-data'>
-									{socMedia.map((data, idx) => {
-										return (
-											<li
-												className='example__container-data-container-sorted-data-item'
-												key={handleSetKey(data, idx)}>
-												{!!data.value ? data.value : 'N/A'}
-											</li>
-										);
-									})}
-								</ol>
-							</div>
-						) : null}
-						{!!socMediaLink ? (
-							<div className='example__container-data-container-sorted'>
-								<div className='example__container-data-container-sorted-title'>
-									Social Media Link
-								</div>
-								<ol className='example__container-data-container-sorted-data'>
-									{socMediaLink.map((data, idx) => {
-										return (
-											<li
-												className='example__container-data-container-sorted-data-item'
-												key={handleSetKey(data, idx)}>
-												{!!data.value ? data.value : 'N/A'}
-											</li>
-										);
-									})}
-								</ol>
-							</div>
-						) : null}
-						<div className='example__container-data-container-sorted example__container-data-container-sorted-thumb'>
-							{!!thumbNail ? (
-								<div className='example__container-data-container-sorted-split'>
-									<div className='example__container-data-container-sorted-split-title'>
-										ThumbNail Link
-									</div>
-									<ol className='example__container-data-container-sorted-split-data'>
-										{thumbNail.map((data, idx) => {
-											return (
-												<li
-													className='example__container-data-container-sorted-data-item'
-													key={handleSetKey(data, idx)}>
-													{!!data.value
-														? data.value
-														: 'N/A'}
-												</li>
-											);
-										})}
-									</ol>
-								</div>
-							) : null}
-							{!!thumb ? (
-								<div className='example__container-data-container-sorted-split'>
-									<div className='example__container-data-container-sorted-split-title'>
-										ThumbNail Href
-									</div>
-									<ol className='example__container-data-container-sorted-split-data'>
-										{thumb.map((data, idx) => {
-											return (
-												<li
-													className='example__container-data-container-sorted-data-item'
-													key={handleSetKey(data, idx)}>
-													{!!data.value
-														? data.value
-														: 'N/A'}
-												</li>
-											);
-										})}
-									</ol>
-								</div>
-							) : null}
-						</div>
+
+						<table className='example__container-data-container-table'>
+							<tr className='example__container-data-container-table-row'>
+								{tableDataHeader.map((data, idx) => {
+									const { value } = data;
+									return (
+										<th
+											className='example__container-data-container-table-row-hearder'
+											key={handleSetKey(value, idx)}>
+											{!!value ? value : 'N/A'}
+										</th>
+									);
+								})}
+							</tr>
+							{tableData.map((data, idx) => {
+								let {
+									rank,
+									artist,
+									baseTitle,
+									remixLink,
+									socMedia,
+									socMediaLink,
+									thumb,
+									thumbNail,
+								} = data;
+								return (
+									<tr className='example__container-data-container-table-row'>
+										<td
+											className={`example__container-data-container-table-row-item example__container-data-container-table-row-item-${handleSetKey(
+												rank.value,
+												idx
+											)}`}
+											key={handleSetKey(rank.value, idx)}>
+											{!!rank?.value ? rank?.value : 'N/A'}
+										</td>
+										<td
+											className={`example__container-data-container-table-row-item example__container-data-container-table-row-item-${handleSetKey(
+												artist.value,
+												idx
+											)}`}
+											key={handleSetKey(artist.value, idx)}>
+											{!!artist?.value
+												? artist?.value
+												: 'N/A'}
+										</td>
+										<td
+											className={`example__container-data-container-table-row-item example__container-data-container-table-row-item-${handleSetKey(
+												baseTitle.value,
+												idx
+											)}`}
+											key={handleSetKey(
+												baseTitle.value,
+												idx
+											)}>
+											{!!baseTitle?.value
+												? baseTitle?.value
+												: 'N/A'}
+										</td>
+										<td
+											className={`example__container-data-container-table-row-item example__container-data-container-table-row-item-${handleSetKey(
+												remixLink.value,
+												idx
+											)}`}
+											key={handleSetKey(
+												remixLink.value,
+												idx
+											)}>
+											{!!remixLink?.value
+												? remixLink?.value
+												: 'N/A'}
+										</td>
+										<td
+											className={`example__container-data-container-table-row-item example__container-data-container-table-row-item-${handleSetKey(
+												socMedia.value,
+												idx
+											)}`}
+											key={handleSetKey(
+												socMedia.value,
+												idx
+											)}>
+											{!!socMedia?.value
+												? socMedia?.value
+												: 'N/A'}
+										</td>
+										<td
+											className={`example__container-data-container-table-row-item example__container-data-container-table-row-item-${handleSetKey(
+												socMediaLink.value,
+												idx
+											)}`}
+											key={handleSetKey(
+												socMediaLink.value,
+												idx
+											)}>
+											{!!socMediaLink?.value
+												? socMediaLink?.value
+												: 'N/A'}
+										</td>
+										<td
+											className={`example__container-data-container-table-row-item example__container-data-container-table-row-item-${handleSetKey(
+												thumb.value,
+												idx
+											)}`}
+											key={handleSetKey(thumb.value, idx)}>
+											{!!thumb?.value
+												? thumb?.value
+												: 'N/A'}
+										</td>
+										<td
+											className={`example__container-data-container-table-row-item example__container-data-container-table-row-item-${handleSetKey(
+												thumbNail.value,
+												idx
+											)}`}
+											key={handleSetKey(
+												thumbNail.value,
+												idx
+											)}>
+											{!!thumbNail?.value
+												? thumbNail?.value
+												: 'N/A'}
+										</td>
+									</tr>
+								);
+							})}
+						</table>
 					</div>
 
 					<div className='example__container-data-container'>
