@@ -862,8 +862,6 @@ function Example() {
 	};
 
 	const handleSetKey = (data, idx) => {
-		console.log('🚀 ~ data', data);
-		console.log('🚀 ~ !data', !data);
 		let set = data;
 		if (!data) {
 			set = 'NA';
@@ -885,7 +883,7 @@ function Example() {
 		{ value: 'Rank' },
 		{ value: 'Artist' },
 		{ value: 'BaseTitle' },
-		{ value: 'Remix Link' },
+		{ value: 'Remix' },
 		{ value: 'Social Media' },
 		{ value: 'Soc Media Link' },
 		{ value: 'Thumb Link' },
@@ -905,7 +903,6 @@ function Example() {
 		};
 		tableData.push(element);
 	}
-	console.log('🚀 ~ tableData', tableData);
 
 	return (
 		<div className='example'>

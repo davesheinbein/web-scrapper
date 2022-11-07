@@ -53,6 +53,13 @@
         justify-content: center;
         align-items: center;
         background: #ffffff;
+        &-error {
+            color: red;
+            font-size: 26px;
+            font-weight: 800;
+            text-align: center;
+            padding: 10px 0;
+        }
     }
     
     &__container-data-none {

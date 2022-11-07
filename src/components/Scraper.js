@@ -6,9 +6,11 @@ import '../styles/scraper.scss';
 const Scraper = () => {
 	const [url, setUrl] = useState('');
 	const [html, setHtml] = useState('HTML Scraped');
+	const [error, setError] = useState(true);
 	const htmlDefault = html === 'HTML Scraped';
 
 	const sendUrl = () => {
+		// setError(false);
 		if (!!url && url.length > 0) {
 			axios
 				.get(
@@ -19,8 +21,12 @@ const Scraper = () => {
 				)
 				.then((res) => {
 					setHtml(res.data);
+					setError(false);
 				})
-				.catch((error) => console.log('error:', error));
+				.catch((error) => {
+					console.log('error:', error);
+					setError(true);
+				});
 		}
 	};
 
@@ -71,6 +77,12 @@ const Scraper = () => {
 							value={html}></textarea>
 					)}
 				</div>
+				{!!error ? (
+					<div className='scraper__container-data-error'>
+						An error occured while scraping data... please
+						try again!
+					</div>
+				) : null}
 				<PreviewView
 					html={html}
 					htmlDefault={htmlDefault}
