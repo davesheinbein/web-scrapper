@@ -113,8 +113,8 @@ function Example() {
 	const sendUrl = () => {
 		axios
 			.get(
-				// 'https://aqueous-lowlands-32179.herokuapp.com/scrape',
-				'http://localhost:8081/scrape',
+				'https://aqueous-lowlands-32179.herokuapp.com/scrape',
+				// 'http://localhost:8081/scrape',
 				{
 					params: { url: sampleUrl },
 				}
@@ -926,6 +926,7 @@ function Example() {
 
 	useEffect(() => {
 		sendUrl();
+		window.scrollTo(0, 0);
 	}, []);
 
 	let tableDataHeader = [
@@ -1126,11 +1127,15 @@ function Example() {
 									/>
 								) : null}
 							</div>
-							<div className='example__container-data-container-possible-button'>
-								<btn className='example__container-data-container-possible-button-btn' onClick={clickedRandomBtn}>
-									Randomize Cover Art
-								</btn>
-							</div>
+							{!defualtData ? (
+								<div className='example__container-data-container-possible-button'>
+									<btn
+										className='example__container-data-container-possible-button-btn'
+										onClick={clickedRandomBtn}>
+										Randomize Cover Art
+									</btn>
+								</div>
+							) : null}
 						</div>
 					</div>
 				</div>
