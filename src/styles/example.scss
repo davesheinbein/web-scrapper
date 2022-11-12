@@ -184,6 +184,9 @@
                 }
 
                 &-table {
+                    display: block;
+                    overflow: auto;
+                    min-width: unset;
                     border-collapse: collapse;
                     font-size: 0.9em;
                     font-family: sans-serif;
@@ -194,11 +197,6 @@
                     margin: 25px auto;
                     table-layout: fixed; 
 
-                    @media only screen and (max-width: 480px) {
-                        display: block;
-                        overflow: auto;
-                        min-width: unset;
-                    }
 
                     &-head {
                         background-color: #82C441;
