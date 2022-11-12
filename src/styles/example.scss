@@ -181,6 +181,24 @@
                             }
                         }
                     }
+                    &-button {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
+                        padding: 20px 0;
+                        &-btn {
+                            border: 1px solid #000000;
+                            border-radius: 5px;
+                            width: 100px;
+                            height: 40px;
+                            cursor: pointer;
+                            &:hover {
+                                border: 1px solid #ffffff;
+                                background: #82C441;
+                            }
+                        }
+                    }
                 }
 
                 &-table {
@@ -214,10 +232,15 @@
                         &-row {
                             border-bottom: 1px solid #dddddd;
                             width: 100%;
+                            &:nth-child(even){
+                                background-color: #b0cdff;
+                                color: #fff;
+                              }
                             &-item {
                                 padding: 12px 15px;
-                                overflow-wrap: break-word;
                                 text-align: center;
+                                overflow-wrap: break-word;
+                                width: 100%;
                             }
                         }
                     }
