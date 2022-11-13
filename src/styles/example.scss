@@ -106,7 +106,6 @@
                         position: relative;
                         margin: 40px 0;
                         @media only screen and (max-width: 480px) {
-                            // transform: scale(.7);
                             padding: 0;
                             margin: 0;
                         }
@@ -198,14 +197,20 @@
                             align-items: center;
                             text-align: center;
                             cursor: pointer;
+                            -webkit-user-select: none; 
+                            -ms-user-select: none; 
+                            user-select: none; 
                             &:hover {
                                 border: 1px solid #ffffff;
                                 background: #82C441;
                             }
+                            &:active {
+                                border: 1px solid #ffffff;
+                                background: #619330;
+                            }
                         }
                     }
                 }
-
                 &-table {
                     display: block;
                     overflow: auto;
@@ -219,8 +224,6 @@
                     max-width: 95%;
                     margin: 25px auto;
                     table-layout: fixed; 
-
-
                     &-head {
                         background-color: #82C441;
                         color: #ffffff;
@@ -238,9 +241,28 @@
                             border-bottom: 1px solid #dddddd;
                             width: 100%;
                             &:nth-child(even){
-                                background-color: #b0cdff;
+                                background-color: #619330;
                                 color: #fff;
-                              }
+                                .example__container-data-container-table-body-row-item {
+                                    a {
+                                        color: #fcfaa1
+                                    }
+                                    a:hover {
+                                        color: blue;
+                                    } 
+                                }
+                            }
+                            &:nth-child(odd){
+                                .example__container-data-container-table-body-row-item {
+                                    a {
+                                        color: #619330
+                                        
+                                    }
+                                    a:hover {
+                                        color: blue;
+                                    } 
+                                }
+                            }
                             &-item {
                                 padding: 12px 15px;
                                 text-align: center;
@@ -250,7 +272,6 @@
                         }
                     }
                 }
-
             }
         }
     }

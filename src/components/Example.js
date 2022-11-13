@@ -104,9 +104,17 @@ function Example() {
 		: null;
 
 	const clickedRandomBtn = () => {
-		setRandomNumOneToTwenty(
-			Math.floor(Math.random() * (19 - 0 + 1)) + 0
-		);
+		let randomNum =
+			Math.floor(Math.random() * (19 - 0 + 1)) + 0;
+		setRandomNumOneToTwenty((prev) => {
+			if (prev === randomNum && randomNum !== 0) {
+				return 0;
+			} else if (prev === randomNum && randomNum === 0) {
+				return 1;
+			} else {
+				return randomNum;
+			}
+		});
 	};
 
 	const sampleUrl = 'https://hypem.com/popular';
@@ -114,7 +122,6 @@ function Example() {
 		axios
 			.get(
 				'https://aqueous-lowlands-32179.herokuapp.com/scrape',
-				// 'http://localhost:8081/scrape',
 				{
 					params: { url: sampleUrl },
 				}
@@ -1067,27 +1074,48 @@ function Example() {
 													socMediaLink.value,
 													idx
 												)}`}>
-												{!!socMediaLink?.value
-													? socMediaLink?.value
-													: 'N/A'}
+												<a
+													href={
+														!!socMediaLink?.value
+															? socMediaLink?.value
+															: 'N/A'
+													}>
+													{!!socMediaLink?.value
+														? socMediaLink?.value
+														: 'N/A'}
+												</a>
 											</td>
 											<td
 												className={`example__container-data-container-table-body-row-item example__container-data-container-table-body-row-item-${handleSetKey(
 													thumb.value,
 													idx
 												)}`}>
-												{!!thumb?.value
-													? thumb?.value
-													: 'N/A'}
+												<a
+													href={
+														!!thumb?.value
+															? thumb?.value
+															: 'N/A'
+													}>
+													{!!thumb?.value
+														? thumb?.value
+														: 'N/A'}
+												</a>
 											</td>
 											<td
 												className={`example__container-data-container-table-body-row-item example__container-data-container-table-body-row-item-${handleSetKey(
 													thumbNail.value,
 													idx
 												)}`}>
-												{!!thumbNail?.value
-													? thumbNail?.value
-													: 'N/A'}
+												<a
+													href={
+														!!thumbNail?.value
+															? thumbNail?.value
+															: 'N/A'
+													}>
+													{!!thumbNail?.value
+														? thumbNail?.value
+														: 'N/A'}
+												</a>
 											</td>
 										</tr>
 									);
